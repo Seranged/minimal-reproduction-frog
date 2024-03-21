@@ -7,7 +7,7 @@ import { serveStatic } from 'frog/serve-static'
 import { devtools } from 'frog/dev'
 
 const app = new Frog({
-  basePath: '/api/',
+  basePath: '/api',
   hub: pinata(),
   browserLocation: '/',
 })
@@ -32,12 +32,12 @@ app.frame('/:dynamicUrl', (c) => {
       </div>
     ),
     intents: [
-      <Button.Transaction target="/bridge">$5</Button.Transaction>,
+      <Button.Transaction target="/transaction">10</Button.Transaction>,
     ],
   })
 })
 
-app.transaction('/bridge', async (c) => {
+app.transaction('/transaction', async (c) => {
   const targetAddress = c.address
   const shortId = [54]
   const amountUSD = 5
