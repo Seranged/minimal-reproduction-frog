@@ -3,11 +3,7 @@
 import { Frog } from 'frog'
 import { pinata } from 'frog/hubs'
 
-export const app = new Frog({
-  basePath: '/api',
-  hub: pinata(),
-  browserLocation: '/',
-})
+export const app = new Frog()
 
 app.transaction('/transaction', async (c) => {
   const targetAddress = c.address

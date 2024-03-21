@@ -1,13 +1,8 @@
 /** @jsxImportSource frog/jsx */
 
 import { Button, Frog } from 'frog'
-import { pinata } from 'frog/hubs'
 
-export const app = new Frog({
-    basePath: '/api',
-    hub: pinata(),
-    browserLocation: '/',
-  })  
+export const app = new Frog()  
 
 app.frame('/:dynamicUrl', (c) => {
     const dynamicUrl = c.req.param('dynamicUrl')
