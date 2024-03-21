@@ -7,7 +7,7 @@ import { serveStatic } from 'frog/serve-static'
 import { devtools } from 'frog/dev'
 
 const app = new Frog({
-  basePath: '/api/:dynamicUrl',
+  basePath: '/api/',
   hub: pinata(),
   browserLocation: '/',
 })
