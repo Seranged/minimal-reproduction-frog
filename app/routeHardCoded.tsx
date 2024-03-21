@@ -12,8 +12,7 @@ const app = new Frog({
   browserLocation: '/',
 })
 
-app.frame('/:dynamicUrl', (c) => {
-  const dynamicUrl = c.req.param('dynamicUrl')
+app.frame('/', (c) => {
   return c.res({
     image: (
       <div
@@ -27,7 +26,7 @@ app.frame('/:dynamicUrl', (c) => {
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color: 'white', fontSize: 60 }}>
-          Test Minimal Dynamic Url ID: {dynamicUrl}
+          Test Minimal
         </div>
       </div>
     ),
