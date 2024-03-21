@@ -12,31 +12,6 @@ const app = new Frog({
   browserLocation: '/',
 })
 
-app.frame('/:dynamicUrl', (c) => {
-  const dynamicUrl = c.req.param('dynamicUrl')
-  return c.res({
-    image: (
-      <div
-        style={{
-          height: '100vh',
-          width: '100vw',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#000000',
-        }}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color: 'white', fontSize: 60 }}>
-          Test Minimal Dynamic Url ID: {dynamicUrl}
-        </div>
-      </div>
-    ),
-    intents: [
-      <Button.Transaction target="/transaction">10</Button.Transaction>,
-    ],
-  })
-})
-
 app.transaction('/transaction', async (c) => {
   const targetAddress = c.address
   const shortId = [54]
@@ -59,6 +34,31 @@ app.transaction('/transaction', async (c) => {
     value: amountWei,
     to: '0x9e22ebec84c7e4c4bd6d4ae7ff6f4d436d6d8390',
     args: [chainsBN, targetAddress as `0x${string}`],
+  })
+})
+
+app.frame('/:dynamicUrl', (c) => {
+  const dynamicUrl = c.req.param('dynamicUrl')
+  return c.res({
+    image: (
+      <div
+        style={{
+          height: '100vh',
+          width: '100vw',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: '#000000',
+        }}
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color: 'white', fontSize: 60 }}>
+          Test Minimal Dynamic Url ID: {dynamicUrl}
+        </div>
+      </div>
+    ),
+    intents: [
+      <Button.Transaction target="/transaction">10</Button.Transaction>,
+    ],
   })
 })
 
